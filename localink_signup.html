@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Makes the page responsive on phones and tablets. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Localink — Sign Up</title>
+    <link rel="stylesheet" href="localink_signup.css" />
+  </head>
+  <body>
+    <!-- ===================== HEADER ===================== -->
+    <header class="topbar">
+      <a href="#" class="brand">Localink</a>
+      <p>Already have an account? <a href="localink_login.html">Log in</a></p>
+    </header>
+
+    <main class="signup-container">
+      <!-- Progress indicator. JavaScript updates the active step. -->
+      <div class="progress">
+        <span class="progress-step active" data-step="1">1</span>
+        <span class="progress-line"></span>
+        <span class="progress-step" data-step="2">2</span>
+        <span class="progress-line"></span>
+        <span class="progress-step" data-step="3">3</span>
+        <span class="progress-line"></span>
+        <span class="progress-step" data-step="4">4</span>
+      </div>
+
+      <!-- ================= STEP 1: ACCOUNT TYPE ================= -->
+      <section class="signup-card step-panel active" id="step-1">
+        <p class="step-label">STEP 1 OF 4</p>
+        <h1>Create your Localink account</h1>
+        <p class="subtitle">How will you use Localink?</p>
+
+        <!-- Radio buttons let the user choose exactly one account type. -->
+        <div class="account-types">
+          <label class="account-option">
+            <input type="radio" name="accountType" value="customer" />
+            <span class="option-content">
+              <span class="option-icon customer-icon">●</span>
+              <strong>Customer</strong>
+              <span
+                >Find products nearby, compare stores, reserve items and
+                shop.</span
+              >
+              <span class="radio-dot"></span>
+            </span>
+          </label>
+
+          <label class="account-option">
+            <input type="radio" name="accountType" value="store" />
+            <span class="option-content">
+              <span class="option-icon store-icon">▰</span>
+              <strong>Store</strong>
+              <span
+                >List your physical store and sell products customers can visit
+                or order.</span
+              >
+              <span class="radio-dot"></span>
+            </span>
+          </label>
+
+          <label class="account-option">
+            <input type="radio" name="accountType" value="vendor" />
+            <span class="option-content">
+              <span class="option-icon vendor-icon">◇</span>
+              <strong>Vendor</strong>
+              <span
+                >Sell on Localink without necessarily having a physical
+                storefront.</span
+              >
+              <span class="radio-dot"></span>
+            </span>
+          </label>
+        </div>
+
+        <p class="form-error" id="type-error"></p>
+        <button type="button" class="primary-button" onclick="goToStep2()">
+          Continue →
+        </button>
+      </section>
+
+      <!-- ================= STEP 2: INFORMATION ================= -->
+      <section class="signup-card step-panel" id="step-2">
+        <p class="step-label">STEP 2 OF 4</p>
+        <h1 id="step2-title">Your information</h1>
+        <p class="subtitle" id="step2-subtitle">
+          Tell us a little about yourself.
+        </p>
+
+        <!-- The fields shown here change according to the selected account type. -->
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fullName">Full name / owner name</label>
+            <input type="text" id="fullName" placeholder="Enter your name" />
+          </div>
+
+          <!-- Only Store and Vendor accounts need a business/store name. -->
+          <div class="form-group hidden" id="business-group">
+            <label for="businessName" id="business-label">Store name</label>
+            <input
+              type="text"
+              id="businessName"
+              placeholder="Enter your business name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" placeholder="you@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" placeholder="08012345678" />
+          </div>
+
+          <!-- Store/vendor address is kept in the account information. -->
+          <div class="form-group full-width hidden" id="address-group">
+            <label for="address">Operating / store address</label>
+            <textarea
+              id="address"
+              rows="3"
+              placeholder="Enter the address"
+            ></textarea>
+            <small>This helps Localink verify and manage the business.</small>
+          </div>
+        </div>
+
+        <p class="form-error" id="info-error"></p>
+        <div class="button-row">
+          <button type="button" class="secondary-button" onclick="showStep(1)">
+            ← Back
+          </button>
+          <button type="button" class="primary-button" onclick="goToStep3()">
+            Continue →
+          </button>
+        </div>
+      </section>
+
+      <!-- ================= STEP 3: VERIFICATION ================= -->
+      <section class="signup-card step-panel" id="step-3">
+        <p class="step-label">STEP 3 OF 4</p>
+        <h1>Verify your contact</h1>
+        <p class="subtitle">
+          Enter the 6-digit code sent to your phone or email.
+        </p>
+
+        <!-- This is a frontend placeholder. PHP will later send and verify the real OTP. -->
+        <div class="verification-box">
+          <div class="verification-icon">✓</div>
+          <p>
+            We sent a code to
+            <strong id="verification-contact">your contact</strong>.
+          </p>
+
+          <div class="otp-inputs">
+            <input maxlength="1" inputmode="numeric" />
+            <input maxlength="1" inputmode="numeric" />
+            <input maxlength="1" inputmode="numeric" />
+            <input maxlength="1" inputmode="numeric" />
+            <input maxlength="1" inputmode="numeric" />
+            <input maxlength="1" inputmode="numeric" />
+          </div>
+
+          <button type="button" class="text-button">Resend code</button>
+        </div>
+
+        <p class="form-error" id="verification-error"></p>
+        <div class="button-row">
+          <button type="button" class="secondary-button" onclick="showStep(2)">
+            ← Back
+          </button>
+          <button type="button" class="primary-button" onclick="goToStep4()">
+            Verify & Continue →
+          </button>
+        </div>
+      </section>
+
+      <!-- ================= STEP 4: PASSWORD ================= -->
+      <section class="signup-card step-panel" id="step-4">
+        <p class="step-label">STEP 4 OF 4</p>
+        <h1>Secure your account</h1>
+        <p class="subtitle">
+          Create a strong password for your Localink account.
+        </p>
+
+        <div class="form-group narrow-form">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Create a password"
+          />
+          <small>Use at least 8 characters.</small>
+        </div>
+
+        <div class="form-group narrow-form">
+          <label for="confirmPassword">Confirm password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Enter your password again"
+          />
+        </div>
+
+        <label class="terms-check">
+          <input type="checkbox" id="terms" />
+          <span
+            >I agree to Localink's <a href="#">Terms of Service</a> and
+            <a href="#">Privacy Policy</a>.</span
+          >
+        </label>
+
+        <p class="form-error" id="password-error"></p>
+        <div class="button-row">
+          <button type="button" class="secondary-button" onclick="showStep(3)">
+            ← Back
+          </button>
+          <button
+            type="button"
+            class="primary-button"
+            onclick="createAccount()"
+          >
+            Create Account ✓
+          </button>
+        </div>
+      </section>
+
+      <!-- ================= SUCCESS SCREEN ================= -->
+      <section class="signup-card step-panel" id="success">
+        <div class="success-icon">✓</div>
+        <p class="step-label">ACCOUNT CREATED</p>
+        <h1>Welcome to Localink!</h1>
+        <p class="subtitle">Your account has been created successfully.</p>
+        <a href="localink_login.html" class="primary-button link-button"
+          >Continue to Login →</a
+        >
+      </section>
+    </main>
+
+    <!--
+    TEMPORARY FRONTEND JAVASCRIPT
+    --------------------------------
+    This is only here so you can see and test the complete signup flow.
+    Later, move it into signup.js if you want separate files.
+
+    IMPORTANT: JavaScript validation is NOT security.
+    PHP must validate everything again on the server before MySQL is changed.
+    The password should eventually be sent to PHP and hashed with password_hash().
+  -->
+    <script src="localink_signup.js"></script>
+  </body>
+</html>

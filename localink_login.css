@@ -1,0 +1,674 @@
+/* =========================================================
+   LOCALINK LOGIN PAGE
+   ---------------------------------------------------------
+   This stylesheet controls the visual appearance of the
+   login page. HTML handles the structure; CSS handles
+   colours, spacing, sizing and responsiveness.
+   ========================================================= */
+
+
+/* =========================
+   1. GLOBAL SETTINGS
+   ========================= */
+
+/* Makes width/height calculations easier to control */
+* {
+    box-sizing: border-box;
+}
+
+/* Localink's main colour palette */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+
+    --dark: #0f172a;
+    --text: #1e293b;
+    --muted: #64748b;
+
+    --background: #f8fafc;
+    --card: #ffffff;
+    --border: #dbe3ef;
+
+    --soft-blue: #eaf2ff;
+}
+
+
+/* Basic page setup */
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: var(--text);
+
+    /*
+        The gradients create the very subtle blue
+        background effect seen in the design.
+    */
+    background:
+        radial-gradient(
+            circle at 8% 85%,
+            #e8f1ff 0 13%,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 95% 15%,
+            #eef5ff 0 14%,
+            transparent 30%
+        ),
+        var(--background);
+}
+
+
+/* Remove the default link underline */
+a {
+    color: inherit;
+}
+
+
+/* =========================
+   2. HEADER
+   ========================= */
+
+.topbar {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+
+    padding: 28px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Localink logo/name */
+.brand {
+    color: var(--dark);
+    text-decoration: none;
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+
+/* "Don't have an account?" text */
+.signup-prompt {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* Sign-up link */
+.signup-prompt a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+
+/* =========================
+   3. MAIN LOGIN LAYOUT
+   ========================= */
+
+.login-page {
+    width: min(1080px, calc(100% - 40px));
+    margin: 35px auto 0;
+
+    /*
+        Two columns:
+        left = Localink introduction
+        right = login form
+    */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+/* =========================
+   4. WELCOME PANEL
+   ========================= */
+
+.welcome-panel {
+    padding: 20px 0;
+}
+
+
+/* Small blue heading above the main title */
+.eyebrow {
+    margin: 0 0 14px;
+
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* Main welcome heading */
+.welcome-panel h1 {
+    margin: 0;
+
+    color: var(--dark);
+
+    font-size: clamp(34px, 4vw, 50px);
+    line-height: 1.08;
+}
+
+
+/* Supporting paragraph */
+.welcome-text {
+    max-width: 480px;
+
+    margin: 20px 0 35px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* List of benefits */
+.benefits {
+    display: grid;
+    gap: 20px;
+}
+
+
+/* Individual benefit */
+.benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+
+/* Small icon box */
+.benefit-icon {
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--primary);
+    background: var(--soft-blue);
+
+    border-radius: 10px;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+
+/* Benefit title */
+.benefit strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--dark);
+
+    font-size: 14px;
+}
+
+
+/* Benefit description */
+.benefit small {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   5. LOGIN CARD
+   ========================= */
+
+.login-card {
+    padding: 38px;
+
+    background: var(--card);
+
+    border: 1px solid #edf1f7;
+    border-radius: 18px;
+
+    /*
+        Soft shadow makes the form look like
+        a separate card from the background.
+    */
+    box-shadow:
+        0 18px 50px rgba(15, 23, 42, 0.08);
+}
+
+
+/* Small heading */
+.step {
+    margin: 0 0 8px;
+
+    color: var(--primary);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* Login title */
+.card-heading h2 {
+    margin: 0;
+
+    color: var(--dark);
+
+    font-size: 28px;
+}
+
+
+/* Login subtitle */
+.card-heading > p:last-child {
+    margin: 8px 0 28px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   6. FORM
+   ========================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+/* Form labels */
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/*
+    This puts "Password" on the left and
+    "Forgot password?" on the right.
+*/
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Remove the normal margin because the label-row handles spacing */
+.label-row label {
+    margin-bottom: 8px;
+}
+
+
+/* Forgot password link */
+.forgot-link {
+    margin-bottom: 8px;
+
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+/* Text inputs */
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: #fff;
+
+    color: var(--text);
+
+    font: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+
+/*
+    :focus means the input currently has the cursor.
+    This makes it easier for users to see where they are typing.
+*/
+.form-group input:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* Placeholder text */
+.form-group input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================
+   7. REMEMBER ME
+   ========================= */
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 20px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   8. LOGIN BUTTON
+   ========================= */
+
+.login-button {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: var(--primary);
+    color: white;
+
+    font: inherit;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        transform 0.2s;
+}
+
+
+/* Button hover effect */
+.login-button:hover {
+    background: var(--primary-dark);
+
+    transform: translateY(-1px);
+}
+
+
+/* Space between the text and arrow */
+.login-button span {
+    margin-left: 8px;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   9. DIVIDER
+   ========================= */
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 24px 0;
+}
+
+
+/* Lines on either side of "or" */
+.divider::before,
+.divider::after {
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background: var(--border);
+}
+
+
+/* "or" text */
+.divider span {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   10. GOOGLE BUTTON
+   ========================= */
+
+.social-button {
+    width: 100%;
+
+    padding: 13px 20px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: white;
+
+    color: var(--text);
+
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   11. LEGAL TEXT
+   ========================= */
+
+.legal-text {
+    margin: 18px 0 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+.legal-text a {
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   12. FOOTER
+   ========================= */
+
+footer {
+    width: min(1080px, calc(100% - 40px));
+
+    margin: 45px auto 0;
+    padding: 25px 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+footer div {
+    display: flex;
+    gap: 20px;
+}
+
+
+footer a {
+    text-decoration: none;
+}
+
+
+/* =========================
+   13. MOBILE RESPONSIVENESS
+   ========================= */
+
+/*
+    At 800px and below, the two-column layout
+    becomes one column so it fits phones and
+    smaller tablets much better.
+*/
+@media (max-width: 800px) {
+
+    .topbar {
+        width: min(100% - 28px, 600px);
+
+        padding: 20px 0;
+    }
+
+
+    .topbar p {
+        font-size: 12px;
+    }
+
+
+    .login-page {
+        width: min(100% - 28px, 600px);
+
+        margin-top: 10px;
+
+        /*
+            Stack the welcome section and login
+            card vertically.
+        */
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+    .welcome-panel {
+        text-align: center;
+    }
+
+
+    .welcome-panel h1 {
+        font-size: 34px;
+    }
+
+
+    .welcome-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .benefits {
+        text-align: left;
+    }
+
+
+    .login-card {
+        padding: 28px 20px;
+    }
+
+
+    footer {
+        width: min(100% - 28px, 600px);
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 12px;
+    }
+}
+
+
+/*
+    Very small phones.
+*/
+@media (max-width: 420px) {
+
+    .topbar {
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+
+    .brand {
+        font-size: 22px;
+    }
+
+
+    .topbar p {
+        text-align: right;
+        max-width: 160px;
+    }
+
+
+    .welcome-panel h1 {
+        font-size: 29px;
+    }
+
+
+    .login-card {
+        padding: 24px 17px;
+    }
+}

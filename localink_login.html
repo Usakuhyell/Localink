@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Makes the page display correctly on phones and other screen sizes -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Localink — Login</title>
+
+    <!-- Connect this HTML file to the separate CSS file -->
+    <link rel="stylesheet" href="localink_login.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+         HEADER / BRAND
+         ========================= -->
+    <header class="topbar">
+      <!-- Clicking the logo can later take the user back to Localink home -->
+      <a href="#" class="brand">Localink</a>
+
+      <p class="signup-prompt">
+        Don't have an account?
+        <a href="localink_signup.html">Sign up</a>
+      </p>
+    </header>
+
+    <!-- =========================
+         MAIN LOGIN AREA
+         ========================= -->
+    <main class="login-page">
+      <!-- Left side: short explanation of Localink -->
+      <section class="welcome-panel">
+        <p class="eyebrow">WELCOME BACK</p>
+
+        <h1>Everything local,<br />right where you need it.</h1>
+
+        <p class="welcome-text">
+          Sign in to discover nearby products, stores and vendors on Localink.
+        </p>
+
+        <!-- Small benefits displayed on larger screens -->
+        <div class="benefits">
+          <div class="benefit">
+            <span class="benefit-icon">⌖</span>
+            <div>
+              <strong>Discover Nearby</strong>
+              <small>Find products and stores close to you.</small>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <span class="benefit-icon">✓</span>
+            <div>
+              <strong>Shop With Confidence</strong>
+              <small>Use Localink's transaction protections.</small>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <span class="benefit-icon">↗</span>
+            <div>
+              <strong>Stay Connected</strong>
+              <small>Keep track of your stores and orders.</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right side: actual login form -->
+      <section class="login-card">
+        <div class="card-heading">
+          <p class="step">ACCOUNT LOGIN</p>
+          <h2>Welcome back</h2>
+          <p>Enter your details to continue.</p>
+        </div>
+
+        <!--
+                IMPORTANT:
+                The form currently has no real backend action.
+                Later, JavaScript/PHP will collect these values,
+                validate them and authenticate the user.
+            -->
+        <form action="#" method="POST" id="loginForm">
+          <!-- Email or phone -->
+          <div class="form-group">
+            <label for="identifier">Email or phone number</label>
+
+            <input
+              type="text"
+              id="identifier"
+              name="identifier"
+              placeholder="Enter your email or phone number"
+              autocomplete="username"
+            />
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <div class="label-row">
+              <label for="password">Password</label>
+
+              <!-- This can later link to a password-reset page -->
+              <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+            />
+          </div>
+
+          <!--
+                    JavaScript can later use this checkbox
+                    to decide whether the login session should
+                    remain active.
+                -->
+          <label class="remember">
+            <input type="checkbox" name="remember" />
+            <span>Remember me</span>
+          </label>
+
+          <!-- Login button -->
+          <button type="submit" class="login-button">
+            Log in
+            <span aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <!-- Divider between normal login and future social login -->
+        <div class="divider">
+          <span>or</span>
+        </div>
+
+        <!--
+                These buttons are only visual for now.
+                Social authentication can be added later if Localink needs it.
+            -->
+        <button type="button" class="social-button">
+          Continue with Google
+        </button>
+
+        <p class="legal-text">
+          By continuing, you agree to Localink's
+          <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+        </p>
+      </section>
+    </main>
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+    <footer>
+      <span>© 2026 Localink. All rights reserved.</span>
+
+      <div>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Help</a>
+      </div>
+    </footer>
+  </body>
+</html>
