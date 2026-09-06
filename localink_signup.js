@@ -58,7 +58,7 @@ function goToStep3() {
   const selected = document.querySelector('input[name="accountType"]:checked');
   let regDetails = '';
 
-  if (!name || !email || !phone) {
+  if (!name || !email || !phone || !address) {
     error.textContent = 'Please complete all required fields.';
     return;
   }
@@ -68,6 +68,11 @@ function goToStep3() {
     const address = document.getElementById('address').value.trim();
 
     if (!business || !address) {
+      if (selectedAccountType === 'store') {
+        error.textContent = 'please complete the store and address fields';
+        return;
+      }
+
       error.textContent = 'Please complete the business and address fields.';
       return;
     }
